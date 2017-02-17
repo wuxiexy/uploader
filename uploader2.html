@@ -30,6 +30,7 @@
 
     <section class="content">
 
+
         <div id="uploader" class="wu-example uploader mt20">
             <div class="queueList">
                 <div id="placeholder" class="placeholder">
@@ -65,13 +66,48 @@
     </section>
 
 
+    <section class="content">
+        <div id="uploader2" class="wu-example uploader mt20">
+            <div class="queueList">
+                <div id="placeholder2" class="placeholder">
+                    <div id="filePicker2" class="webuploader-container">
+                        <div>点击选择图片2</div>
+                        <div style="position: absolute; top: 0; left: 238px; width: 168px; height: 44px; overflow: hidden; bottom: auto; right: auto;">
+                            <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*">
+                            <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+                        </div>
+                    </div>
+                    <p>或将照片拖到这里，单次最多可选 6 张</p>
+                </div>
+                <ul id="filelist2" class="filelist"></ul>
+            </div>
+            <div id="statusBar2" class="statusBar" style="display: none;">
+                <div class="progress" style="display: none;">
+                    <span class="text">0%</span>
+                    <span class="percentage" style="width: 0;"></span>
+                </div><div id="info2" class="info">共0张（0B），已上传0张</div>
+                <div class="btns">
+                    <div id="picker2" class="webuploader-container continueAdding">
+                        <div class="webuploader-pick">继续添加</div>
+                        <div style="position: absolute; top: 0px; left: 0px; width: 1px; height: 1px; overflow: hidden;">
+                            <input type="file" name="file" class="webuploader-element-invisible" multiple="multiple" accept="image/*">
+                            <label style="opacity: 0; width: 100%; height: 100%; display: block; cursor: pointer; background: rgb(255, 255, 255);"></label>
+                        </div>
+                    </div>
+                    <div id="uploadBtn2" class="uploadBtn state-pedding">开始上传</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 
 
     <script type="text/javascript" src="./js/jquery-3.1.1.js"></script>
     <script type="text/javascript" src="./js/webuploader.js"></script>
-    <script type="text/javascript" src="./js/WConfig.js"></script>
+    <script type="text/javascript" src="./js/w.js"></script>
 
     <script type="text/javascript">
+
         let option = {
             thumbnail : [120, 120],
             upLoaderID: '#uploader',                           // 上传图片功能容器
@@ -91,7 +127,34 @@
             uploadBtn: '#uploadBtn'                             // 开始上传按钮
         };
 
-        $.upload.init(option);
+        let o = new Uploader(option);
+        o.init();
+
+
+
+
+        let option2 = {
+            thumbnail : [120, 120],
+            upLoaderID: '#uploader2',                           // 上传图片功能容器
+            previewID: '#filelist2',                            // 图片容器
+            server: './server/preview.php',
+            pick: '#filePicker2',
+            addButton:{
+                id: '#picker2',                             // 继续添加按钮
+                label: '继续添加2'
+            },
+            statusBar: '#statusBar2',                           // 状态栏，包括进度和控制按钮
+            info: '#info2',                                     // 文件总体选择信息。
+            placeHolder: '#placeholder2',
+            progress: '#progress2',
+            dnd: '#placeholder2',                                    // 指定Drag And Drop拖拽的容器
+            paste: '#uploader2',                                 // 指定监听paste事件的容器，此功能为通过粘贴来添加截屏的图片
+            uploadBtn: '#uploadBtn2'                             // 开始上传按钮
+        };
+        let o2 = new Uploader(option2);
+        o2.init();
+
+
 
     </script>
 
