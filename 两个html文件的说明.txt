@@ -18,7 +18,7 @@ uploader2.html	这个文件是引用了 js/w.js.
 以及在弄 js 参数配置的时候也要弄成不同的变量，  
 有几个上传模块，就配置几个 option,同时也要 new 几个实例
 
-aa
+aaaaa
 
 
 
